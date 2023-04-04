@@ -3379,10 +3379,17 @@ void MessageGenerator::GenerateClassSpecificMergeImpl(io::Printer* p) {
       "(void) cached_has_bits;\n\n");
 
   if (ShouldSplit(descriptor_, options_)) {
-    format(
-        "if (!from.IsSplitMessageDefault()) {\n"
-        "  _this->PrepareSplitMessageForWrite();\n"
-        "}\n");
+    format("if (!from.IsSplitMessageDefault()) {\n");
+    format.Indent();
+    format("_this->PrepareSplitMessageForWrite();\n");
+    // TODO(b/122856539): cache the split pointers.
+    for (auto field : optimized_order_) {
+      if (ShouldSplit(field, options_) && field->is_repeated()) {
+        field_generators_.get(field).GenerateMergingCode(p);
+      }
+    }
+    format.Outdent();
+    format("}\n");
   }
 
   std::vector<std::vector<const FieldDescriptor*>> chunks = CollectFields(
@@ -3434,6 +3441,8 @@ void MessageGenerator::GenerateClassSpecificMergeImpl(io::Printer* p) {
       const auto& generator = field_generators_.get(field);
 
       if (field->is_repeated()) {
+        // We handle this case separately.
+        if (ShouldSplit(field, options_)) continue;
         generator.GenerateMergingCode(p);
       } else if (field->is_optional() && !HasHasbit(field)) {
         // Merge semantics without true field presence: primitive fields are
