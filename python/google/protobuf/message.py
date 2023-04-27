@@ -369,7 +369,9 @@ class Message(object):
 
   @staticmethod
   def RegisterExtension(field_descriptor):
-    raise NotImplementedError
+    raise NotImplementedError(
+        'RegisterExtension is no op in cpp extension and upb. Please remove it'
+    )
 
   def _SetListener(self, message_listener):
     """Internal method used by the protocol message implementation.
