@@ -225,7 +225,7 @@ void Map::GenerateInlineAccessorDefinitions(io::Printer* p) const {
     }
     inline $Map$* $Msg$::_internal_mutable_$name$() {
       $PrepareSplitMessageForWrite$;
-      return $field_$.MutableMap();
+      $TsanDetectConcurrentMutation$ return $field_$.MutableMap();
     }
     inline $Map$* $Msg$::mutable_$name$() {
       $annotate_mutable$;

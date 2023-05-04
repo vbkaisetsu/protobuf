@@ -827,7 +827,7 @@ void RepeatedMessage::GenerateInlineAccessorDefinitions(io::Printer* p) const {
     }
     inline $pb$::RepeatedPtrField<$Submsg$>*
     $classname$::_internal_mutable_$name$() {
-      return &$field$$.weak$;
+      $TsanDetectConcurrentMutation$ return &$field$$.weak$;
     }
   )cc");
   if (weak_) {
@@ -838,7 +838,7 @@ void RepeatedMessage::GenerateInlineAccessorDefinitions(io::Printer* p) const {
       }
       inline $pb$::WeakRepeatedPtrField<$Submsg$>*
       $Msg$::_internal_mutable_weak_$name$() {
-        return &$field$;
+        $TsanDetectConcurrentMutation$ return &$field$;
       }
     )cc");
   }

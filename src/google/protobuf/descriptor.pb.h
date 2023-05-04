@@ -679,6 +679,9 @@ class PROTOBUF_EXPORT FileDescriptorSet final :
   struct Impl_ {
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::FileDescriptorProto > file_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -1082,6 +1085,9 @@ class PROTOBUF_EXPORT FileDescriptorProto final :
     ::google::protobuf::internal::ArenaStringPtr edition_;
     ::google::protobuf::FileOptions* options_;
     ::google::protobuf::SourceCodeInfo* source_code_info_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -1268,6 +1274,9 @@ class PROTOBUF_EXPORT DescriptorProto_ExtensionRange final :
     ::google::protobuf::ExtensionRangeOptions* options_;
     ::int32_t start_;
     ::int32_t end_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -1437,6 +1446,9 @@ class PROTOBUF_EXPORT DescriptorProto_ReservedRange final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::int32_t start_;
     ::int32_t end_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -1789,6 +1801,9 @@ class PROTOBUF_EXPORT DescriptorProto final :
     ::google::protobuf::RepeatedPtrField<std::string> reserved_name_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::MessageOptions* options_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -2022,6 +2037,9 @@ class PROTOBUF_EXPORT ExtensionRangeOptions_Declaration final :
     bool is_repeated_;
     bool reserved_;
     bool repeated_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -2393,6 +2411,9 @@ class PROTOBUF_EXPORT ExtensionRangeOptions final :
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::ExtensionRangeOptions_Declaration > declaration_;
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
     int verification_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -2770,6 +2791,9 @@ class PROTOBUF_EXPORT FieldDescriptorProto final :
     bool proto3_optional_;
     int label_;
     int type_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -2949,6 +2973,9 @@ class PROTOBUF_EXPORT OneofDescriptorProto final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::OneofOptions* options_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -3118,6 +3145,9 @@ class PROTOBUF_EXPORT EnumDescriptorProto_EnumReservedRange final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::int32_t start_;
     ::int32_t end_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -3369,6 +3399,9 @@ class PROTOBUF_EXPORT EnumDescriptorProto final :
     ::google::protobuf::RepeatedPtrField<std::string> reserved_name_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::EnumOptions* options_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -3561,6 +3594,9 @@ class PROTOBUF_EXPORT EnumValueDescriptorProto final :
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::EnumValueOptions* options_;
     ::int32_t number_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -3760,6 +3796,9 @@ class PROTOBUF_EXPORT ServiceDescriptorProto final :
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::MethodDescriptorProto > method_;
     ::google::protobuf::internal::ArenaStringPtr name_;
     ::google::protobuf::ServiceOptions* options_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -4003,6 +4042,9 @@ class PROTOBUF_EXPORT MethodDescriptorProto final :
     ::google::protobuf::MethodOptions* options_;
     bool client_streaming_;
     bool server_streaming_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -4660,6 +4702,9 @@ class PROTOBUF_EXPORT FileOptions final :
     bool deprecated_;
     int optimize_for_;
     bool cc_enable_arenas_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -5041,6 +5086,9 @@ class PROTOBUF_EXPORT MessageOptions final :
     bool deprecated_;
     bool map_entry_;
     bool deprecated_legacy_json_field_conflicts_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -5599,6 +5647,9 @@ class PROTOBUF_EXPORT FieldOptions final :
     bool debug_redact_;
     int retention_;
     int target_obsolete_do_not_use_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -5914,6 +5965,9 @@ class PROTOBUF_EXPORT OneofOptions final :
 
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -6269,6 +6323,9 @@ class PROTOBUF_EXPORT EnumOptions final :
     bool allow_alias_;
     bool deprecated_;
     bool deprecated_legacy_json_field_conflicts_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -6598,6 +6655,9 @@ class PROTOBUF_EXPORT EnumValueOptions final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
     bool deprecated_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -6927,6 +6987,9 @@ class PROTOBUF_EXPORT ServiceOptions final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
     bool deprecated_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -7290,6 +7353,9 @@ class PROTOBUF_EXPORT MethodOptions final :
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::UninterpretedOption > uninterpreted_option_;
     bool deprecated_;
     int idempotency_level_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -7468,6 +7534,9 @@ class PROTOBUF_EXPORT UninterpretedOption_NamePart final :
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
     ::google::protobuf::internal::ArenaStringPtr name_part_;
     bool is_extension_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -7729,6 +7798,9 @@ class PROTOBUF_EXPORT UninterpretedOption final :
     ::uint64_t positive_int_value_;
     ::int64_t negative_int_value_;
     double double_value_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -7982,6 +8054,9 @@ class PROTOBUF_EXPORT SourceCodeInfo_Location final :
     ::google::protobuf::RepeatedPtrField<std::string> leading_detached_comments_;
     ::google::protobuf::internal::ArenaStringPtr leading_comments_;
     ::google::protobuf::internal::ArenaStringPtr trailing_comments_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -8146,6 +8221,9 @@ class PROTOBUF_EXPORT SourceCodeInfo final :
   struct Impl_ {
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::SourceCodeInfo_Location > location_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -8389,6 +8467,9 @@ class PROTOBUF_EXPORT GeneratedCodeInfo_Annotation final :
     ::int32_t begin_;
     ::int32_t end_;
     int semantic_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -8553,6 +8634,9 @@ class PROTOBUF_EXPORT GeneratedCodeInfo final :
   struct Impl_ {
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::GeneratedCodeInfo_Annotation > annotation_;
     mutable ::google::protobuf::internal::CachedSize _cached_size_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fdescriptor_2eproto;
@@ -8613,7 +8697,10 @@ FileDescriptorSet::_internal_file() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::FileDescriptorProto>*
 FileDescriptorSet::_internal_mutable_file() {
-  return &_impl_.file_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.file_;
 }
 
 // -------------------------------------------------------------------
@@ -8830,7 +8917,10 @@ FileDescriptorProto::_internal_dependency() const {
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
 FileDescriptorProto::_internal_mutable_dependency() {
-  return &_impl_.dependency_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.dependency_;
 }
 
 // repeated int32 public_dependency = 10;
@@ -8868,7 +8958,10 @@ inline const ::google::protobuf::RepeatedField<::int32_t>& FileDescriptorProto::
   return _impl_.public_dependency_;
 }
 inline ::google::protobuf::RepeatedField<::int32_t>* FileDescriptorProto::_internal_mutable_public_dependency() {
-  return &_impl_.public_dependency_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.public_dependency_;
 }
 
 // repeated int32 weak_dependency = 11;
@@ -8906,7 +8999,10 @@ inline const ::google::protobuf::RepeatedField<::int32_t>& FileDescriptorProto::
   return _impl_.weak_dependency_;
 }
 inline ::google::protobuf::RepeatedField<::int32_t>* FileDescriptorProto::_internal_mutable_weak_dependency() {
-  return &_impl_.weak_dependency_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.weak_dependency_;
 }
 
 // repeated .google.protobuf.DescriptorProto message_type = 4;
@@ -8948,7 +9044,10 @@ FileDescriptorProto::_internal_message_type() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::DescriptorProto>*
 FileDescriptorProto::_internal_mutable_message_type() {
-  return &_impl_.message_type_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.message_type_;
 }
 
 // repeated .google.protobuf.EnumDescriptorProto enum_type = 5;
@@ -8990,7 +9089,10 @@ FileDescriptorProto::_internal_enum_type() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::EnumDescriptorProto>*
 FileDescriptorProto::_internal_mutable_enum_type() {
-  return &_impl_.enum_type_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.enum_type_;
 }
 
 // repeated .google.protobuf.ServiceDescriptorProto service = 6;
@@ -9032,7 +9134,10 @@ FileDescriptorProto::_internal_service() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::ServiceDescriptorProto>*
 FileDescriptorProto::_internal_mutable_service() {
-  return &_impl_.service_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.service_;
 }
 
 // repeated .google.protobuf.FieldDescriptorProto extension = 7;
@@ -9074,7 +9179,10 @@ FileDescriptorProto::_internal_extension() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::FieldDescriptorProto>*
 FileDescriptorProto::_internal_mutable_extension() {
-  return &_impl_.extension_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.extension_;
 }
 
 // optional .google.protobuf.FileOptions options = 8;
@@ -9687,7 +9795,10 @@ DescriptorProto::_internal_field() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::FieldDescriptorProto>*
 DescriptorProto::_internal_mutable_field() {
-  return &_impl_.field_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.field_;
 }
 
 // repeated .google.protobuf.FieldDescriptorProto extension = 6;
@@ -9729,7 +9840,10 @@ DescriptorProto::_internal_extension() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::FieldDescriptorProto>*
 DescriptorProto::_internal_mutable_extension() {
-  return &_impl_.extension_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.extension_;
 }
 
 // repeated .google.protobuf.DescriptorProto nested_type = 3;
@@ -9771,7 +9885,10 @@ DescriptorProto::_internal_nested_type() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::DescriptorProto>*
 DescriptorProto::_internal_mutable_nested_type() {
-  return &_impl_.nested_type_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.nested_type_;
 }
 
 // repeated .google.protobuf.EnumDescriptorProto enum_type = 4;
@@ -9813,7 +9930,10 @@ DescriptorProto::_internal_enum_type() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::EnumDescriptorProto>*
 DescriptorProto::_internal_mutable_enum_type() {
-  return &_impl_.enum_type_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.enum_type_;
 }
 
 // repeated .google.protobuf.DescriptorProto.ExtensionRange extension_range = 5;
@@ -9855,7 +9975,10 @@ DescriptorProto::_internal_extension_range() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::DescriptorProto_ExtensionRange>*
 DescriptorProto::_internal_mutable_extension_range() {
-  return &_impl_.extension_range_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.extension_range_;
 }
 
 // repeated .google.protobuf.OneofDescriptorProto oneof_decl = 8;
@@ -9897,7 +10020,10 @@ DescriptorProto::_internal_oneof_decl() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::OneofDescriptorProto>*
 DescriptorProto::_internal_mutable_oneof_decl() {
-  return &_impl_.oneof_decl_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.oneof_decl_;
 }
 
 // optional .google.protobuf.MessageOptions options = 7;
@@ -10029,7 +10155,10 @@ DescriptorProto::_internal_reserved_range() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::DescriptorProto_ReservedRange>*
 DescriptorProto::_internal_mutable_reserved_range() {
-  return &_impl_.reserved_range_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.reserved_range_;
 }
 
 // repeated string reserved_name = 10;
@@ -10116,7 +10245,10 @@ DescriptorProto::_internal_reserved_name() const {
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
 DescriptorProto::_internal_mutable_reserved_name() {
-  return &_impl_.reserved_name_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.reserved_name_;
 }
 
 // -------------------------------------------------------------------
@@ -10392,7 +10524,10 @@ ExtensionRangeOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 ExtensionRangeOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // repeated .google.protobuf.ExtensionRangeOptions.Declaration declaration = 2 [retention = RETENTION_SOURCE];
@@ -10434,7 +10569,10 @@ ExtensionRangeOptions::_internal_declaration() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::ExtensionRangeOptions_Declaration>*
 ExtensionRangeOptions::_internal_mutable_declaration() {
-  return &_impl_.declaration_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.declaration_;
 }
 
 // optional .google.protobuf.ExtensionRangeOptions.VerificationState verification = 3 [default = UNVERIFIED];
@@ -11316,7 +11454,10 @@ EnumDescriptorProto::_internal_value() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::EnumValueDescriptorProto>*
 EnumDescriptorProto::_internal_mutable_value() {
-  return &_impl_.value_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.value_;
 }
 
 // optional .google.protobuf.EnumOptions options = 3;
@@ -11448,7 +11589,10 @@ EnumDescriptorProto::_internal_reserved_range() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::EnumDescriptorProto_EnumReservedRange>*
 EnumDescriptorProto::_internal_mutable_reserved_range() {
-  return &_impl_.reserved_range_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.reserved_range_;
 }
 
 // repeated string reserved_name = 5;
@@ -11535,7 +11679,10 @@ EnumDescriptorProto::_internal_reserved_name() const {
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
 EnumDescriptorProto::_internal_mutable_reserved_name() {
-  return &_impl_.reserved_name_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.reserved_name_;
 }
 
 // -------------------------------------------------------------------
@@ -11826,7 +11973,10 @@ ServiceDescriptorProto::_internal_method() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::MethodDescriptorProto>*
 ServiceDescriptorProto::_internal_mutable_method() {
-  return &_impl_.method_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.method_;
 }
 
 // optional .google.protobuf.ServiceOptions options = 3;
@@ -13176,7 +13326,10 @@ FileOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 FileOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -13347,7 +13500,10 @@ MessageOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 MessageOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -13618,7 +13774,10 @@ inline const ::google::protobuf::RepeatedField<int>& FieldOptions::_internal_tar
   return _impl_.targets_;
 }
 inline ::google::protobuf::RepeatedField<int>* FieldOptions::_internal_mutable_targets() {
-  return &_impl_.targets_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.targets_;
 }
 
 // repeated .google.protobuf.UninterpretedOption uninterpreted_option = 999;
@@ -13660,7 +13819,10 @@ FieldOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 FieldOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // optional .google.protobuf.FieldOptions.OptionTargetType target_obsolete_do_not_use = 18 [deprecated = true];
@@ -13732,7 +13894,10 @@ OneofOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 OneofOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -13853,7 +14018,10 @@ EnumOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 EnumOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -13924,7 +14092,10 @@ EnumValueOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 EnumValueOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -13995,7 +14166,10 @@ ServiceOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 ServiceOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -14092,7 +14266,10 @@ MethodOptions::_internal_uninterpreted_option() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption>*
 MethodOptions::_internal_mutable_uninterpreted_option() {
-  return &_impl_.uninterpreted_option_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.uninterpreted_option_;
 }
 
 // -------------------------------------------------------------------
@@ -14230,7 +14407,10 @@ UninterpretedOption::_internal_name() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::UninterpretedOption_NamePart>*
 UninterpretedOption::_internal_mutable_name() {
-  return &_impl_.name_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.name_;
 }
 
 // optional string identifier_value = 3;
@@ -14536,7 +14716,10 @@ inline const ::google::protobuf::RepeatedField<::int32_t>& SourceCodeInfo_Locati
   return _impl_.path_;
 }
 inline ::google::protobuf::RepeatedField<::int32_t>* SourceCodeInfo_Location::_internal_mutable_path() {
-  return &_impl_.path_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.path_;
 }
 
 // repeated int32 span = 2 [packed = true];
@@ -14574,7 +14757,10 @@ inline const ::google::protobuf::RepeatedField<::int32_t>& SourceCodeInfo_Locati
   return _impl_.span_;
 }
 inline ::google::protobuf::RepeatedField<::int32_t>* SourceCodeInfo_Location::_internal_mutable_span() {
-  return &_impl_.span_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.span_;
 }
 
 // optional string leading_comments = 3;
@@ -14787,7 +14973,10 @@ SourceCodeInfo_Location::_internal_leading_detached_comments() const {
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
 SourceCodeInfo_Location::_internal_mutable_leading_detached_comments() {
-  return &_impl_.leading_detached_comments_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.leading_detached_comments_;
 }
 
 // -------------------------------------------------------------------
@@ -14833,7 +15022,10 @@ SourceCodeInfo::_internal_location() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::SourceCodeInfo_Location>*
 SourceCodeInfo::_internal_mutable_location() {
-  return &_impl_.location_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.location_;
 }
 
 // -------------------------------------------------------------------
@@ -14875,7 +15067,10 @@ inline const ::google::protobuf::RepeatedField<::int32_t>& GeneratedCodeInfo_Ann
   return _impl_.path_;
 }
 inline ::google::protobuf::RepeatedField<::int32_t>* GeneratedCodeInfo_Annotation::_internal_mutable_path() {
-  return &_impl_.path_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.path_;
 }
 
 // optional string source_file = 2;
@@ -15060,7 +15255,10 @@ GeneratedCodeInfo::_internal_annotation() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::GeneratedCodeInfo_Annotation>*
 GeneratedCodeInfo::_internal_mutable_annotation() {
-  return &_impl_.annotation_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.annotation_;
 }
 
 #ifdef __GNUC__

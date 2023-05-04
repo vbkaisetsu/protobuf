@@ -464,7 +464,7 @@ void RepeatedPrimitive::GenerateInlineAccessorDefinitions(
       return $field_$;
     }
     inline $pb$::RepeatedField<$Type$>* $Msg$::_internal_mutable_$name$() {
-      return &$field_$;
+      $TsanDetectConcurrentMutation$ return &$field_$;
     }
   )cc");
 }

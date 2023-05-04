@@ -320,6 +320,9 @@ class PROTOC_EXPORT Version final :
     ::int32_t major_;
     ::int32_t minor_;
     ::int32_t patch_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fcompiler_2fplugin_2eproto;
@@ -549,6 +552,9 @@ class PROTOC_EXPORT CodeGeneratorRequest final :
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::FileDescriptorProto > proto_file_;
     ::google::protobuf::internal::ArenaStringPtr parameter_;
     ::google::protobuf::compiler::Version* compiler_version_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fcompiler_2fplugin_2eproto;
@@ -766,6 +772,9 @@ class PROTOC_EXPORT CodeGeneratorResponse_File final :
     ::google::protobuf::internal::ArenaStringPtr insertion_point_;
     ::google::protobuf::internal::ArenaStringPtr content_;
     ::google::protobuf::GeneratedCodeInfo* generated_code_info_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fcompiler_2fplugin_2eproto;
@@ -983,6 +992,9 @@ class PROTOC_EXPORT CodeGeneratorResponse final :
     ::google::protobuf::RepeatedPtrField< ::google::protobuf::compiler::CodeGeneratorResponse_File > file_;
     ::google::protobuf::internal::ArenaStringPtr error_;
     ::uint64_t supported_features_;
+    #ifdef PROTOBUF_TSAN
+    ::uint32_t _tsan_detect_mutation = 0;
+    #endif // PROTOBUF_TSAN
   };
   union { Impl_ _impl_; };
   friend struct ::TableStruct_google_2fprotobuf_2fcompiler_2fplugin_2eproto;
@@ -1230,7 +1242,10 @@ CodeGeneratorRequest::_internal_file_to_generate() const {
 }
 inline ::google::protobuf::RepeatedPtrField<std::string>*
 CodeGeneratorRequest::_internal_mutable_file_to_generate() {
-  return &_impl_.file_to_generate_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.file_to_generate_;
 }
 
 // optional string parameter = 2;
@@ -1332,7 +1347,10 @@ CodeGeneratorRequest::_internal_proto_file() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::FileDescriptorProto>*
 CodeGeneratorRequest::_internal_mutable_proto_file() {
-  return &_impl_.proto_file_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.proto_file_;
 }
 
 // optional .google.protobuf.compiler.Version compiler_version = 3;
@@ -1835,7 +1853,10 @@ CodeGeneratorResponse::_internal_file() const {
 }
 inline ::google::protobuf::RepeatedPtrField<::google::protobuf::compiler::CodeGeneratorResponse_File>*
 CodeGeneratorResponse::_internal_mutable_file() {
-  return &_impl_.file_;
+  #ifdef PROTOBUF_TSAN
+_impl_._tsan_detect_mutation = !_impl_._tsan_detect_mutation;
+#endif  // PROTOBUF_TSAN
+ return &_impl_.file_;
 }
 
 #ifdef __GNUC__

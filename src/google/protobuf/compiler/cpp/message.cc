@@ -1830,6 +1830,12 @@ void MessageGenerator::GenerateClassDefinition(io::Printer* p) {
     format("::$proto_ns$::internal::AnyMetadata _any_metadata_;\n");
   }
 
+  // For detecting cases of concurrent mutations.
+  format(
+      "#ifdef PROTOBUF_TSAN\n"
+      "$uint32$ _tsan_detect_mutation = 0;\n"
+      "#endif // PROTOBUF_TSAN\n");
+
   format.Outdent();
   format("};\n");
 

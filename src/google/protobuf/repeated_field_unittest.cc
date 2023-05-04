@@ -2029,6 +2029,42 @@ TEST(RepeatedPtrField, Cleanups) {
   EXPECT_THAT(growth.cleanups, testing::IsEmpty());
 }
 
+#if !defined(PROTO2_OPENSOURCE) && defined(PROTOBUF_TSAN)
+TEST(RepeatedPtrField, TsanDetectConcurrentMutation) {
+  // We need to unset these env vars to prevent the testing infrastructure from
+  // getting false positives from the child processes failures. See:
+  // https://docs.bazel.build/versions/master/test-encyclopedia.html#initial-conditions
+  unsetenv("TEST_PREMATURE_EXIT_FILE");
+  unsetenv("TEST_WARNINGS_OUTPUT_FILE");
+  auto do_concurrent_mutation = [] {
+    TestAllTypes msg;
+    ThreadPool pool(10);
+    pool.StartWorkers();
+    // Note: with lower iterations, we saw TSan flakily fail to catch the race.
+    constexpr int kIterations = 100000;
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_int32(i);
+    });
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_int64(i);
+    });
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_uint32(i);
+    });
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_uint64(i);
+    });
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_sint32(i);
+    });
+    pool.Schedule([&] {
+      for (int i = 0; i < kIterations; ++i) msg.add_repeated_sint64(i);
+    });
+  };
+  EXPECT_DEATH(do_concurrent_mutation(), "ThreadSanitizer: data race");
+}
+
+
 // ===================================================================
 
 // Iterator tests stolen from net/proto/proto-array_unittest.
