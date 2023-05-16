@@ -192,6 +192,11 @@ class GeneratedProtocolMessageType(type):
     for field in descriptor.fields:
       _AttachFieldHelpers(cls, field)
 
+    if descriptor.is_extendable and hasattr(descriptor.file, 'pool'):
+      extensions = descriptor.file.pool.FindAllExtensions(descriptor)
+      for ext in extensions:
+        _AttachFieldHelpers(cls, ext)
+
     descriptor._concrete_class = cls  # pylint: disable=protected-access
     _AddEnumValues(descriptor, cls)
     _AddInitMethod(descriptor, cls)

@@ -31,6 +31,7 @@
 """Contains _ExtensionDict class to represent extensions.
 """
 
+from google.protobuf.internal import python_message
 from google.protobuf.internal import type_checkers
 from google.protobuf.descriptor import FieldDescriptor
 
@@ -55,6 +56,10 @@ def _VerifyExtensionHandle(message, extension_handle):
                    (extension_handle.full_name,
                     extension_handle.containing_type.full_name,
                     message.DESCRIPTOR.full_name))
+
+  if not hasattr(extension_handle, '_default_constructor'):
+    python_message._AttachFieldHelpers(message, extension_handle)
+    print('Register %s.', extension_handle.full_name)
 
 
 # TODO(robinson): Unify error handling of "unknown extension" crap.
