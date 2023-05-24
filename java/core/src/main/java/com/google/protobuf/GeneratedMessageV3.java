@@ -2153,11 +2153,15 @@ public abstract class GeneratedMessageV3 extends AbstractMessage implements Seri
           }
         }
 
-        int oneofsSize = oneofs.length;
-        for (int i = 0; i < oneofsSize; i++) {
+        for (int i = 0; i < descriptor.getRealOneofs().size(); i++) {
           oneofs[i] =
-              new OneofAccessor(
+              new RealOneofAccessor(
                   descriptor, i, camelCaseNames[i + fieldsSize], messageClass, builderClass);
+        }
+        for (int i = 0;
+            i < descriptor.getOneofs().size() - descriptor.getRealOneofs().size();
+            i++) {
+          oneofs[i] = new SyntheticOneofAccessor(descriptor, i);
         }
         initialized = true;
         camelCaseNames = null;
@@ -2229,9 +2233,21 @@ public abstract class GeneratedMessageV3 extends AbstractMessage implements Seri
       Message.Builder getRepeatedBuilder(GeneratedMessageV3.Builder<?> builder, int index);
     }
 
-    /** OneofAccessor provides access to a single oneof. */
-    private static class OneofAccessor {
-      OneofAccessor(
+    private static interface OneofAccessor {
+      public boolean has(final GeneratedMessageV3 message);
+
+      public boolean has(GeneratedMessageV3.Builder<?> builder);
+
+      public FieldDescriptor get(final GeneratedMessageV3 message);
+
+      public FieldDescriptor get(GeneratedMessageV3.Builder<?> builder);
+
+      public void clear(final Builder<?> builder);
+    }
+
+    /** RealOneofAccessor provides access to a single real oneof. */
+    private static class RealOneofAccessor implements OneofAccessor {
+      RealOneofAccessor(
           final Descriptor descriptor,
           final int oneofIndex,
           final String camelCaseName,
@@ -2239,15 +2255,8 @@ public abstract class GeneratedMessageV3 extends AbstractMessage implements Seri
           final Class<? extends Builder<?>> builderClass) {
         this.descriptor = descriptor;
         OneofDescriptor oneofDescriptor = descriptor.getOneofs().get(oneofIndex);
-        if (oneofDescriptor.isSynthetic()) {
-          caseMethod = null;
-          caseMethodBuilder = null;
-          fieldDescriptor = oneofDescriptor.getFields().get(0);
-        } else {
-          caseMethod = getMethodOrDie(messageClass, "get" + camelCaseName + "Case");
-          caseMethodBuilder = getMethodOrDie(builderClass, "get" + camelCaseName + "Case");
-          fieldDescriptor = null;
-        }
+        caseMethod = getMethodOrDie(messageClass, "get" + camelCaseName + "Case");
+        caseMethodBuilder = getMethodOrDie(builderClass, "get" + camelCaseName + "Case");
         clearMethod = getMethodOrDie(builderClass, "clear" + camelCaseName);
       }
 
@@ -2255,45 +2264,27 @@ public abstract class GeneratedMessageV3 extends AbstractMessage implements Seri
       private final Method caseMethod;
       private final Method caseMethodBuilder;
       private final Method clearMethod;
-      private final FieldDescriptor fieldDescriptor;
 
       public boolean has(final GeneratedMessageV3 message) {
-        if (fieldDescriptor != null) {
-          return message.hasField(fieldDescriptor);
-        } else {
-          return ((Internal.EnumLite) invokeOrDie(caseMethod, message)).getNumber() != 0;
-        }
+        return ((Internal.EnumLite) invokeOrDie(caseMethod, message)).getNumber() != 0;
       }
 
       public boolean has(GeneratedMessageV3.Builder<?> builder) {
-        if (fieldDescriptor != null) {
-          return builder.hasField(fieldDescriptor);
-        } else {
-          return ((Internal.EnumLite) invokeOrDie(caseMethodBuilder, builder)).getNumber() != 0;
-        }
+        return ((Internal.EnumLite) invokeOrDie(caseMethodBuilder, builder)).getNumber() != 0;
       }
 
       public FieldDescriptor get(final GeneratedMessageV3 message) {
-        if (fieldDescriptor != null) {
-          return message.hasField(fieldDescriptor) ? fieldDescriptor : null;
-        } else {
-          int fieldNumber = ((Internal.EnumLite) invokeOrDie(caseMethod, message)).getNumber();
-          if (fieldNumber > 0) {
-            return descriptor.findFieldByNumber(fieldNumber);
-          }
+        int fieldNumber = ((Internal.EnumLite) invokeOrDie(caseMethod, message)).getNumber();
+        if (fieldNumber > 0) {
+          return descriptor.findFieldByNumber(fieldNumber);
         }
         return null;
       }
 
       public FieldDescriptor get(GeneratedMessageV3.Builder<?> builder) {
-        if (fieldDescriptor != null) {
-          return builder.hasField(fieldDescriptor) ? fieldDescriptor : null;
-        } else {
-          int fieldNumber =
-              ((Internal.EnumLite) invokeOrDie(caseMethodBuilder, builder)).getNumber();
-          if (fieldNumber > 0) {
-            return descriptor.findFieldByNumber(fieldNumber);
-          }
+        int fieldNumber = ((Internal.EnumLite) invokeOrDie(caseMethodBuilder, builder)).getNumber();
+        if (fieldNumber > 0) {
+          return descriptor.findFieldByNumber(fieldNumber);
         }
         return null;
       }
@@ -2301,6 +2292,36 @@ public abstract class GeneratedMessageV3 extends AbstractMessage implements Seri
       public void clear(final Builder<?> builder) {
         // TODO(b/230609037): remove the unused variable
         Object unused = invokeOrDie(clearMethod, builder);
+      }
+    }
+
+    /** SyntheticOneofAccessor provides access to a single synthetic oneof. */
+    private static class SyntheticOneofAccessor implements OneofAccessor {
+      SyntheticOneofAccessor(final Descriptor descriptor, final int oneofIndex) {
+        OneofDescriptor oneofDescriptor = descriptor.getOneofs().get(oneofIndex);
+        fieldDescriptor = oneofDescriptor.getFields().get(0);
+      }
+
+      private final FieldDescriptor fieldDescriptor;
+
+      public boolean has(final GeneratedMessageV3 message) {
+        return message.hasField(fieldDescriptor);
+      }
+
+      public boolean has(GeneratedMessageV3.Builder<?> builder) {
+        return builder.hasField(fieldDescriptor);
+      }
+
+      public FieldDescriptor get(final GeneratedMessageV3 message) {
+        return message.hasField(fieldDescriptor) ? fieldDescriptor : null;
+      }
+
+      public FieldDescriptor get(GeneratedMessageV3.Builder<?> builder) {
+        return builder.hasField(fieldDescriptor) ? fieldDescriptor : null;
+      }
+
+      public void clear(final Builder<?> builder) {
+        builder.clearField(fieldDescriptor);
       }
     }
 

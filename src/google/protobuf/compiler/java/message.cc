@@ -247,8 +247,9 @@ int ImmutableMessageGenerator::GenerateFieldAccessorTableInitializer(
     bytecode_estimate += 6;
     printer->Print("\"$field_name$\", ", "field_name", info->capitalized_name);
   }
-  // We reproduce synthetic oneofs here since proto reflection needs these.
-  for (int i = 0; i < descriptor_->oneof_decl_count(); i++) {
+  // We only consider real oneofs here since proto reflection should not need
+  // this for synthetic oneofs.
+  for (int i = 0; i < descriptor_->real_oneof_decl_count(); i++) {
     const OneofDescriptor* oneof = descriptor_->oneof_decl(i);
     const OneofGeneratorInfo* info = context_->GetOneofGeneratorInfo(oneof);
     bytecode_estimate += 6;
