@@ -91,7 +91,7 @@ def BuildTopDescriptorsAndMessages(file_des, module_name, module):
   # top level enums
   for (name, enum_des) in file_des.enum_types_by_name.items():
     module['_' + name.upper()] = enum_des
-    module[name] = enum_type_wrapper.EnumTypeWrapper(enum_des)
+    module[name] = enum_type_wrapper.EnumTypeWrapper(name, enum_des)
     for enum_value in enum_des.values:
       module[enum_value.name] = enum_value.number
 
